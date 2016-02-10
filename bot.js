@@ -379,7 +379,7 @@ exports.Bot = {
         return canUse;
     },
     reload: function() {
-    	let problem = false;
+    	let problemWithReload = false;
         Commands = {};
         var commandFiles = fs.readdirSync('./commands/');
         for (var i = 0; i < commandFiles.length; i++) {
