@@ -379,18 +379,23 @@ exports.Bot = {
         return canUse;
     },
     reload: function() {
+    	let problem = false;
         Commands = {};
         var commandFiles = fs.readdirSync('./commands/');
         for (var i = 0; i < commandFiles.length; i++) {
             try {
                 Tools.uncacheTree('./commands/' + commandFiles[i]);
                 Object.merge(Commands, require('./commands/' + commandFiles[i]).commands);
-                ok('Reloaded command files: ' + commandFiles[i])
             }
             catch (e) {
                 error('Unable to reload command files: ' + commandFiles[i]);
+                problemWithReload = true;
                 console.log(e.stack)
             }
+        }
+        if (!problem) { 
+        	this.say(room, 'All patched up now :I.');
+        	ok('Reloaded command files.');
         }
     },
     /*
