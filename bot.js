@@ -394,7 +394,7 @@ exports.Bot = {
             }
         }
         if (!problem) { 
-        	this.say(room, 'All patched up now :I.');
+        	this.talk(room, 'All patched up now :I.');
         	ok('Reloaded command files.');
         }
     },
