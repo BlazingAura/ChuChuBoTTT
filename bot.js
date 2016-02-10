@@ -393,10 +393,7 @@ exports.Bot = {
                 console.log(e.stack)
             }
         }
-        if (!problem) { 
-        	this.talk(room, 'All patched up now :I.');
-        	ok('Reloaded command files.');
-        }
+        if (!problemWithReload) ok('Commands Reloaded.');
     },
     /*
 	alts: 'profile',
